@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background:
+    radial-gradient(1000px circle at 50% 0%, rgba(236,72,153,0.12), transparent 60%),
+    radial-gradient(800px circle at 80% 30%, rgba(168,85,247,0.10), transparent 60%),
+    #0b0f14;
+}
+
+/* =========================
+   🌸 GLOBAL FALLING PETALS
+========================= */
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) translateX(60px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: fixed;              /* 🔑 REQUIRED */
+  top: -10vh;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+
+  animation-name: petal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  filter: drop-shadow(0 0 6px rgba(236,72,153,0.4));
+}
+
+/* Optional: disable on small screens */
+@media (max-width: 640px) {
+  .petal {
+    display: none;
+  }
+}
+
+/* =========================
+   OTHER ANIMATIONS (UNCHANGED)
+========================= */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
