@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,8 +9,8 @@ export default function Footer() {
         {/* Brand + Description */}
         <div>
           <div className="flex items-center gap-3 text-white font-semibold text-lg">
-            <Image
-              src="/images/Silu.png"
+            <img
+              src="/images/logo.png"
               alt="Silicality logo"
               width={150}
               height={150}

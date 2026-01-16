@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -42,14 +42,12 @@ export default function Navbar() {
 
         {/* ===== LOGO ===== */}
         <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/Silu.png"
-            alt="Silicality logo"
-            width={150}
-            height={150}
-            priority
-            className="rounded-md hover:drop-shadow-[0_0_10px_rgba(236,72,153,0.6)]"
-          />
+<img
+  src="/images/logo.png"
+  alt="Silicality logo"
+  className="h-28 w-auto sm:h-30"
+/>
+
         </Link>
 
         {/* ===== DESKTOP NAV ===== */}
