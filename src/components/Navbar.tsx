@@ -27,16 +27,18 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+
           
-          {/* ===== LOGO ===== */}
-          <Link href="/" className="flex items-center gap-3">
-            <img
-              src="/images/logo.png"
-              alt="Silicality logo"
-              className="h-12 w-auto sm:h-14"
-            />
-          </Link>
+      {/* ===== NAVBAR ===== */}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        {/* ===== LOGO ===== */}
+        <Link href="/" className="flex items-center gap-3">
+          <img
+            src="/images/logo.png"
+            alt="Silicality logo"
+            className="h-28 w-auto"
+          />
+        </Link>
 
           {/* ===== DESKTOP NAV ===== */}
           <div className="hidden sm:flex items-center gap-10">

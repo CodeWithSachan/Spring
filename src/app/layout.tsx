@@ -1,3 +1,4 @@
+
 import "@/styles/globals.css";
 import { Providers } from "./providers";
 import NavbarWrapper from "@/components/NavbarWrapper";
