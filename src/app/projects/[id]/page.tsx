@@ -124,7 +124,7 @@ export default function ProjectDetail({
 
           {project.accepting && (
             <Link
-              href="https://forms.gle/YOUR_CONTRIBUTOR_FORM_LINK"
+              href="https://forms.gle/K3njXShxxrb7tRLo6"
               target="_blank"
               className="
                 rounded-full
@@ -146,7 +146,7 @@ export default function ProjectDetail({
           </p>
 
           <Link
-            href={`/spring/recognition`}
+            href={`/recognition`}
             className="text-pink-400 hover:text-pink-300 transition text-sm"
           >
             View recognized contributors →
@@ -158,7 +158,7 @@ export default function ProjectDetail({
       {project.accepting && (
         <div className="hidden lg:block fixed bottom-6 right-6">
           <Link
-            href="https://forms.gle/YOUR_CONTRIBUTOR_FORM_LINK"
+            href="https://forms.gle/K3njXShxxrb7tRLo6"
             target="_blank"
             className="
               rounded-full

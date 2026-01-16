@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
+import NavbarWrapper from "@/components/NavbarWrapper";
 
 export default function RootLayout({
   children,
@@ -21,7 +21,9 @@ export default function RootLayout({
         <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(236,72,153,0.15),_transparent_60%)]" />
 
         <Providers>
-          <Navbar />
+          {/* ✅ Navbar appears ONLY on non-dashboard routes */}
+          <NavbarWrapper />
+
           <main className="relative">
             {children}
           </main>

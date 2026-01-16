@@ -47,6 +47,23 @@ export const projects: Project[] = [
       role: "Maintainer",
     },
   },
+
+    {
+    id: "daan-setu",
+    title: "DaanSetu",
+    description:
+      "Smart donation and pickup system connecting donors with NGOs.",
+    tech: ["Next.js", "Firebase"],
+    difficulty: "Intermediate",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/example/daan-setu",
+    maintainer: {
+      name: "Ayush Sachan",
+      role: "Maintainer",
+    },
+  },
 ];
 
 

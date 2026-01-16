@@ -24,6 +24,16 @@ const contributors = [
     projects: ["Civic Sense"],
     github: "https://github.com/silicality",
   },
+    {
+    id: "silicality-core",
+    name: "Silicality Core",
+    role: "Mentor",
+    bio: "Maintainers and mentors guiding contributors through production-grade OSS.",
+    score: 980,
+    badges: ["Mentor", "Reviewer"],
+    projects: ["Civic Sense"],
+    github: "https://github.com/silicality",
+  },
 ];
 
 export default function ContributorProfile({
