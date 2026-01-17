@@ -1,0 +1,153 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/**
+ * =======================
+ * USER & AUTH (NextAuth)
+ * =======================
+ */
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(CONTRIBUTOR)
+  createdAt     DateTime  @default(now())
+
+  accounts Account[]
+  sessions Session[]
+
+  contributions Contribution[]
+  recognitions  Recognition[]
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+/**
+ * =======================
+ * CORE DOMAIN
+ * =======================
+ */
+
+model Project {
+  id          String     @id @default(uuid())
+  title       String
+  description String
+  difficulty  Difficulty
+  accepting   Boolean    @default(false)
+  repoUrl     String
+  createdAt   DateTime   @default(now())
+
+  contributions Contribution[]
+}
+
+model Season {
+  id               String   @id @default(uuid())
+  name             String   @unique
+  registrationFrom DateTime
+  registrationTo   DateTime
+  contributionFrom DateTime
+  contributionTo   DateTime
+  active           Boolean  @default(false)
+  createdAt        DateTime @default(now())
+
+  contributions Contribution[]
+  recognitions  Recognition[]
+}
+
+model Contribution {
+  id        String             @id @default(uuid())
+  userId    String
+  projectId String
+  seasonId  String
+  status    ContributionStatus @default(PENDING)
+  createdAt DateTime           @default(now())
+
+  user    User    @relation(fields: [userId], references: [id])
+  project Project @relation(fields: [projectId], references: [id])
+  season  Season  @relation(fields: [seasonId], references: [id])
+
+  @@unique([userId, projectId, seasonId])
+  @@index([userId])
+  @@index([projectId])
+  @@index([seasonId])
+}
+
+model Recognition {
+  id        String   @id @default(uuid())
+  userId    String
+  seasonId  String
+  title     String
+  score     Int
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  season Season @relation(fields: [seasonId], references: [id])
+}
+
+/**
+ * =======================
+ * ENUMS
+ * =======================
+ */
+
+enum Role {
+  CONTRIBUTOR
+  MENTOR
+  ADMIN
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum ContributionStatus {
+  PENDING
+  ACTIVE
+  MERGED
+}

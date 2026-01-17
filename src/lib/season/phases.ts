@@ -1,0 +1,8 @@
+export const SEASON_PHASES = {
+  REGISTRATION: "REGISTRATION",
+  CONTRIBUTION: "CONTRIBUTION",
+  EVALUATION: "EVALUATION",
+  RECOGNITION: "RECOGNITION",
+} as const;
+
+export type SeasonPhase = keyof typeof SEASON_PHASES;
