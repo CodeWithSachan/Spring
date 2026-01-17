@@ -1,8 +1,9 @@
-// import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="w-full border-t border-white/10 bg-[#0b0f14] px-6 py-16">
+      
       {/* Top section */}
       <div className="mx-auto max-w-7xl grid grid-cols-1 gap-12 md:grid-cols-3">
 
@@ -16,7 +17,6 @@ export default function Footer() {
               height={150}
               className="object-contain"
             />
-            {/* <span>Silicality</span> */}
           </div>
 
           <p className="mt-4 max-w-sm text-sm text-gray-400 leading-relaxed">
@@ -42,17 +42,31 @@ export default function Footer() {
         {/* Company Links */}
         <div className="flex flex-col gap-3 text-sm">
           <span className="text-white font-medium">Company</span>
-          <span className="text-gray-400 cursor-not-allowed">About (soon)</span>
-          <span className="text-gray-400 cursor-not-allowed">Blog (soon)</span>
-          <span className="text-gray-400 cursor-not-allowed">Careers (soon)</span>
+
+          <Link
+            href="/about"
+            className="text-gray-400 hover:text-white transition"
+          >
+            About
+          </Link>
+
+          <span className="text-gray-400 cursor-not-allowed">
+            Blog (soon)
+          </span>
+
+          <span className="text-gray-400 cursor-not-allowed">
+            Careers (soon)
+          </span>
         </div>
-      </div>
+
+      </div> {/* ✅ GRID CLOSED HERE */}
 
       {/* Bottom bar */}
       <div className="mx-auto mt-14 max-w-7xl flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
         <span>© {new Date().getFullYear()} Silicality. All rights reserved.</span>
         <span>Built for learning. Designed for impact.</span>
       </div>
+
     </footer>
   );
 }
