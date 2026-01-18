@@ -86,6 +86,11 @@ export default function Hero() {
 
           <span className="rounded-full border border-pink-500/40 bg-pink-500/10
             px-4 py-1.5 text-xs sm:text-sm text-white">
+            🌸 Pre-Registration: Open
+          </span>
+
+          <span className="rounded-full border border-pink-500/40 bg-pink-500/10
+            px-4 py-1.5 text-xs sm:text-sm text-white">
             🌸 Registration: Feb 1 – Feb 28, 2026
           </span>
 

@@ -30,13 +30,13 @@ export default function Navbar() {
 
           
       {/* ===== NAVBAR ===== */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1">
         {/* ===== LOGO ===== */}
         <Link href="/" className="flex items-center gap-3">
           <img
             src="/images/logo.png"
             alt="Silicality logo"
-            className="h-28 w-auto"
+            className="h-24 w-auto"
           />
         </Link>
 
