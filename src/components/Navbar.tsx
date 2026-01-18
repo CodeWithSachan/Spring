@@ -44,6 +44,8 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-10">
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/#timeline" className="nav-link">Timeline</Link>
+            <Link href="/resources" className="nav-link">Resources</Link>
+            <Link href="/sponsors" className="nav-link">Sponsors</Link>
             <Link href="/about" className="nav-link">About</Link>
 
             {status === "loading" ? null : session ? (
@@ -105,6 +107,13 @@ export default function Navbar() {
             >
               Timeline
             </Link>
+
+                                  <Link
+            href="/resources"
+            className="text-2xl font-semibold hover:text-pink-400 transition"
+          >
+            Resources
+          </Link>
 
                       <Link
             href="/about"

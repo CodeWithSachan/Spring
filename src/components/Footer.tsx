@@ -50,6 +50,13 @@ export default function Footer() {
             About
           </Link>
 
+                    <Link
+            href="/resources"
+            className="text-gray-400 hover:text-white transition"
+          >
+            Resources
+          </Link>
+
           <span className="text-gray-400 cursor-not-allowed">
             Blog (soon)
           </span>
