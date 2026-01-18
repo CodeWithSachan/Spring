@@ -115,6 +115,13 @@ export default function Navbar() {
             Resources
           </Link>
 
+                                                        <Link
+            href="/sponsors"
+            className="text-2xl font-semibold hover:text-pink-400 transition"
+          >
+            Sponsors
+          </Link>
+
                       <Link
             href="/about"
             className="text-2xl font-semibold hover:text-pink-400 transition"
