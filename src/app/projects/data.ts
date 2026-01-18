@@ -118,7 +118,7 @@ export const projects: Project[] = [
 
 
 
-// for future proofingLogin-Signup-Page-Flutter
+// for future proofing
 //   // drafts (hidden)
 // published: false
 

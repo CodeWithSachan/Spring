@@ -62,19 +62,19 @@ export default function TeamPage() {
               </em>
               <br /><br />
               After struggling with tutorials, fake projects, and unclear paths,
-              Ayush started Silicality to help beginners move from
+              I started Silicality to help beginners move from
               learning to real contribution — with structure, mentorship,
               and recognition.
             </p>
 
             <div className="flex gap-4 pt-2">
-              <Link
+              {/* <Link
                 href="https://github.com/CodeWithSachan"
                 target="_blank"
                 className="text-gray-400 hover:text-white transition"
               >
                 GitHub
-              </Link>
+              </Link> */}
 
               <Link
                 href="https://www.linkedin.com/"
