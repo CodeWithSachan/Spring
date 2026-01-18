@@ -164,5 +164,22 @@ model ResourceClick {
   user User? @relation(fields: [userId], references: [id])
 }
 
+model Applicant {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  github      String?
+  skills      String?
+  experience  String?
+  notes       String?
+  status      ApplicationStatus @default(APPLIED)
+  createdAt   DateTime @default(now())
+}
+
+enum ApplicationStatus {
+  APPLIED
+  ACCEPTED
+  REJECTED
+}
 
 

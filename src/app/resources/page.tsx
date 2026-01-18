@@ -4,10 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { trackResourceClick } from "@/lib/analytics/trackResourceClick";
 
+/* ---------------- Animations ---------------- */
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
+
+/* ---------------- Components ---------------- */
 
 type SectionProps = {
   icon: string;
@@ -23,7 +27,7 @@ const Section = ({ icon, title, description, children }: SectionProps) => (
     whileInView="visible"
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
-    className="space-y-10"
+    className="space-y-12"
   >
     <div className="flex items-center gap-3">
       <span className="text-2xl">{icon}</span>
@@ -65,6 +69,7 @@ const ResourceCard = ({
   <Link
     href={href}
     target="_blank"
+    rel="noopener noreferrer"
     onClick={() => trackResourceClick(title, category)}
   >
     <motion.div
@@ -74,8 +79,8 @@ const ResourceCard = ({
       className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10"
     >
       {recommended && (
-        <span className="absolute right-4 top-4 rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-400">
-          Recommended
+        <span className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 px-3 py-1 text-xs text-emerald-300 backdrop-blur">
+          ⭐ Recommended
         </span>
       )}
 
@@ -102,6 +107,8 @@ const ResourceCard = ({
   </Link>
 );
 
+/* ---------------- Page ---------------- */
+
 export default function ResourcesPage() {
   return (
     <motion.section
@@ -110,7 +117,7 @@ export default function ResourcesPage() {
       transition={{ duration: 0.4 }}
       className="min-h-screen bg-[#0b0f14] px-6 py-28"
     >
-      <div className="mx-auto max-w-7xl space-y-28">
+      <div className="mx-auto max-w-7xl space-y-32">
 
         {/* ===== HEADER ===== */}
         <div className="max-w-3xl space-y-4">
@@ -155,7 +162,7 @@ export default function ResourcesPage() {
           />
         </Section>
 
-        {/* ===== OPEN SOURCE ESSENTIALS ===== */}
+        {/* ===== OPEN SOURCE ===== */}
         <Section
           icon="🌱"
           title="Open Source Essentials"
@@ -179,7 +186,7 @@ export default function ResourcesPage() {
           />
         </Section>
 
-        {/* ===== VIDEO TUTORIALS ===== */}
+        {/* ===== VIDEO ===== */}
         <Section
           icon="🎥"
           title="Video Tutorials"
@@ -202,7 +209,7 @@ export default function ResourcesPage() {
           />
         </Section>
 
-        {/* ===== INTERACTIVE LEARNING ===== */}
+        {/* ===== INTERACTIVE ===== */}
         <Section
           icon="🧩"
           title="Interactive Learning"
@@ -233,7 +240,7 @@ export default function ResourcesPage() {
           />
         </Section>
 
-        {/* ===== LEARNING PLATFORMS ===== */}
+        {/* ===== PLATFORMS ===== */}
         <Section
           icon="📚"
           title="Learning Platforms"
@@ -265,8 +272,15 @@ export default function ResourcesPage() {
           />
         </Section>
 
+        {/* ===== CONTRIBUTOR TIP ===== */}
+        <div className="rounded-2xl border border-pink-400/20 bg-pink-400/10 p-6 text-sm text-pink-200">
+          <strong>Contributor Tip:</strong>  
+          Don’t try to learn everything. Pick one stack, one project, and ship
+          real pull requests. Depth beats breadth in open source.
+        </div>
+
         {/* ===== NOTE ===== */}
-        <div className="mt-36 rounded-2xl border border-blue-400/20 bg-blue-400/10 p-6 text-sm text-blue-200">
+        <div className="rounded-2xl border border-blue-400/20 bg-blue-400/10 p-6 text-sm text-blue-200">
           <strong>Note:</strong> All external links open in a new tab. These
           resources are curated for contributors and maintained by their
           respective organizations.
