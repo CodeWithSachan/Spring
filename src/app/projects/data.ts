@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       "An open-source platform to report and track civic issues in cities.",
     tech: ["React", "Node.js", "MongoDB"],
-    difficulty: "Beginner",
+    difficulty: "Advanced",
     accepting: true,
     featured: true,
     published: true, // ✅ REQUIRED
@@ -43,24 +43,74 @@ export const projects: Project[] = [
     published: true, // ✅ REQUIRED
     repo: "https://github.com/example/daan-setu",
     maintainer: {
-      name: "Ayush Sachan",
+      name: "Silicality Core",
       role: "Maintainer",
     },
   },
 
     {
-    id: "daan-setu",
-    title: "DaanSetu",
+    id: "ATS_Scanner",
+    title: "ATS_Scanner",
     description:
-      "Smart donation and pickup system connecting donors with NGOs.",
-    tech: ["Next.js", "Firebase"],
+      "Community-driven Resume Analyzer and ATS Scanner, built to help students and job seekers.",
+    tech: ["Python"],
+    difficulty: "Beginner",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/silicality/ATS_Scanner",
+    maintainer: {
+      name: "Silicality Core",
+      role: "Maintainer",
+    },
+  },
+      {
+    id: "House-Price-Predictor",
+    title: "House-Price-Predictor",
+    description:
+      "A House Price Prediction project built using machine learning techniques.",
+    tech: ["Html","Python"],
+    difficulty: "Beginner",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/silicality/House-Price-Predictor",
+    maintainer: {
+      name: "Silicality Core",
+      role: "Maintainer",
+    },
+  },
+
+        {
+    id: "Login-Signup-Page-Flutter",
+    title: "Login-Signup-Page-Flutter",
+    description:
+      "Community-driven Extension of a Flutter-based Welcome, Login, and Signup UI project.",
+    tech: ["Html","CSS","Dart","C++","CMake","Swift"],
     difficulty: "Intermediate",
     accepting: true,
     featured: false,
     published: true, // ✅ REQUIRED
-    repo: "https://github.com/example/daan-setu",
+    repo: "https://github.com/silicality/Login-Signup-Page-Flutter",
     maintainer: {
-      name: "Ayush Sachan",
+      name: "Silicality Core",
+      role: "Maintainer",
+    },
+  },
+
+    {
+    id: "FakeNews",
+    title: "FakeNews",
+    description:
+      "FakeNewsTracker, for collecting, analyzing, and visualizing of fake news and the related dissemination on social media.",
+    tech: ["Python"],
+    difficulty: "Beginner",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/silicality/FakeNews",
+    maintainer: {
+      name: "Silicality Core",
       role: "Maintainer",
     },
   },
@@ -68,7 +118,7 @@ export const projects: Project[] = [
 
 
 
-// for future proofing
+// for future proofingLogin-Signup-Page-Flutter
 //   // drafts (hidden)
 // published: false
 
