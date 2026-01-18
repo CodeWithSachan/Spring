@@ -43,8 +43,8 @@ export default function Navbar() {
           {/* ===== DESKTOP NAV ===== */}
           <div className="hidden sm:flex items-center gap-10">
             <Link href="/" className="nav-link">Home</Link>
-            <Link href="/#timeline" className="nav-link">Timeline</Link>
             <Link href="/resources" className="nav-link">Resources</Link>
+            <Link href="/mentors" className="nav-link">Mentor</Link>
             <Link href="/sponsors" className="nav-link">Sponsors</Link>
             <Link href="/about" className="nav-link">About</Link>
 
@@ -100,22 +100,29 @@ export default function Navbar() {
               Home
             </Link>
 
-            <Link
+            {/* <Link
               href="/#timeline"
               onClick={() => setOpen(false)}
               className="text-2xl font-semibold hover:text-pink-400 transition"
             >
               Timeline
-            </Link>
+            </Link> */}
 
-                                  <Link
+            <Link
             href="/resources"
             className="text-2xl font-semibold hover:text-pink-400 transition"
           >
             Resources
           </Link>
 
-                                                        <Link
+                        <Link
+            href="/mentors"
+            className="text-2xl font-semibold hover:text-pink-400 transition"
+          >
+            Mentors
+          </Link>
+
+            <Link
             href="/sponsors"
             className="text-2xl font-semibold hover:text-pink-400 transition"
           >

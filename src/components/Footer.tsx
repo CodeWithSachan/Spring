@@ -34,9 +34,13 @@ export default function Footer() {
           <a href="#timeline" className="text-gray-400 hover:text-white transition">
             Timeline
           </a>
-          <a href="#apply" className="text-gray-400 hover:text-white transition">
-            Apply
+
+                    <a href="resources" className="text-gray-400 hover:text-white transition">
+            Resources
           </a>
+          {/* <a href="#apply" className="text-gray-400 hover:text-white transition">
+            Apply
+          </a> */}
         </div>
 
         {/* Company Links */}
@@ -51,19 +55,27 @@ export default function Footer() {
           </Link>
 
                     <Link
-            href="/resources"
+            href="/team"
             className="text-gray-400 hover:text-white transition"
           >
-            Resources
+            Team
           </Link>
 
-          <span className="text-gray-400 cursor-not-allowed">
+          <Link href="/privacy" className="text-gray-400 hover:text-white">
+           Privacy Policy
+           </Link>
+
+          <Link href="/terms" className="text-gray-400 hover:text-white">
+            Terms of Service
+            </Link>
+
+          {/* <span className="text-gray-400 cursor-not-allowed">
             Blog (soon)
           </span>
 
           <span className="text-gray-400 cursor-not-allowed">
             Careers (soon)
-          </span>
+          </span> */}
         </div>
 
       </div> {/* ✅ GRID CLOSED HERE */}
