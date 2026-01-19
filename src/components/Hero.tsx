@@ -109,10 +109,10 @@ export default function Hero() {
           "
         >
           {[
-            { to: 10000, label: "Developers" },
-            { to: 1500, label: "Resources" },
-            { to: 500, label: "PRs" },
-            { to: 50, label: "Events" },
+            { to: 1000, label: "Developers" },
+            { to: 150, label: "Resources" },
+            { to: 50, label: "PRs" },
+            { to: 5, label: "Events" },
           ].map((s) => (
             <div
               key={s.label}
