@@ -74,7 +74,7 @@ export const projects: Project[] = [
     accepting: true,
     featured: false,
     published: true, // ✅ REQUIRED
-    repo: "https://github.com/silicality/House-Price-Predictor",
+    repo: "https://github.com/silicality/Houses-Price-Predictor",
     maintainer: {
       name: "Silicality Core",
       role: "Maintainer",
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     accepting: true,
     featured: false,
     published: true, // ✅ REQUIRED
-    repo: "https://github.com/silicality/Login-Signup-Page-Flutter",
+    repo: "https://github.com/silicality/Login-Signup-Page--Flutter",
     maintainer: {
       name: "Silicality Core",
       role: "Maintainer",
@@ -109,6 +109,23 @@ export const projects: Project[] = [
     featured: false,
     published: true, // ✅ REQUIRED
     repo: "https://github.com/silicality/FakeNews",
+    maintainer: {
+      name: "Silicality Core",
+      role: "Maintainer",
+    },
+  },
+
+      {
+    id: "To-Do-List",
+    title: "To-Do-List",
+    description:
+      " A basic To-Do List application that is intentionally kept simple and minimal..",
+    tech: ["CSS"],
+    difficulty: "Beginner",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/silicality/To-Do-List",
     maintainer: {
       name: "Silicality Core",
       role: "Maintainer",
