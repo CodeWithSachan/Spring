@@ -17,6 +17,26 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* ===== ESC KEY CLOSE ===== */
+  useEffect(() => {
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, []);
+
+  /* ===== CLICK OUTSIDE CLOSE ===== */
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    if (open) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
+
   return (
     <>
       {/* ================= HEADER ================= */}
@@ -27,18 +47,15 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-
-          
-      {/* ===== NAVBAR ===== */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1">
-        {/* ===== LOGO ===== */}
-        <Link href="/" className="flex items-center gap-3">
-          <img
-            src="/images/logo.png"
-            alt="Silicality logo"
-            className="h-24 w-auto"
-          />
-        </Link>
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1">
+          {/* ===== LOGO ===== */}
+          <Link href="/" className="flex items-center gap-3">
+            <img
+              src="/images/logo.png"
+              alt="Silicality logo"
+              className="h-24 w-auto"
+            />
+          </Link>
 
           {/* ===== DESKTOP NAV ===== */}
           <div className="hidden sm:flex items-center gap-10">
@@ -59,14 +76,9 @@ export default function Navbar() {
               <button
                 onClick={() => signIn("github", { callbackUrl: "/projects" })}
                 className="
-                  rounded-full
-                  border border-pink-500/40
-                  px-5 py-2
-                  text-base font-semibold
-                  text-white
-                  hover:bg-pink-500/10
-                  hover:border-pink-400
-                  transition
+                  rounded-full border border-pink-500/40
+                  px-5 py-2 font-semibold
+                  hover:bg-pink-500/10 hover:border-pink-400 transition
                 "
               >
                 Sign In
@@ -77,105 +89,84 @@ export default function Navbar() {
           {/* ===== MOBILE TOGGLE ===== */}
           <button
             onClick={() => setOpen(!open)}
-            className="sm:hidden flex flex-col gap-[5px]"
             aria-label="Toggle menu"
+            aria-expanded={open}
+            className="sm:hidden flex flex-col gap-[5px] z-50"
           >
-            <span className={`h-[2px] w-6 bg-white transition ${open && "rotate-45 translate-y-[7px]"}`} />
-            <span className={`h-[2px] w-6 bg-white transition ${open && "opacity-0"}`} />
-            <span className={`h-[2px] w-6 bg-white transition ${open && "-rotate-45 -translate-y-[7px]"}`} />
+            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "rotate-45 translate-y-[7px]"}`} />
+            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "opacity-0"}`} />
+            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "-rotate-45 -translate-y-[7px]"}`} />
           </button>
         </nav>
       </header>
 
       {/* ================= MOBILE MENU ================= */}
-      {open && (
-        <div className="sm:hidden fixed inset-0 z-40 bg-[#0b0f14]/95 backdrop-blur-lg">
-          <div className="flex h-full flex-col justify-center px-8 gap-6 text-white">
+      <div
+        ref={menuRef}
+        className={`
+          sm:hidden fixed inset-0 z-40
+          bg-[#0b0f14]/95 backdrop-blur-lg
+          transition-transform duration-300 ease-in-out
+          ${open ? "translate-x-0" : "translate-x-full"}
+        `}
+      >
+        <div className="flex h-full flex-col justify-center px-8 gap-6 text-white">
+          <MobileLink href="/" setOpen={setOpen}>Home</MobileLink>
+          <MobileLink href="/resources" setOpen={setOpen}>Resources</MobileLink>
+          <MobileLink href="/mentors" setOpen={setOpen}>Mentors</MobileLink>
+          <MobileLink href="/sponsors" setOpen={setOpen}>Sponsors</MobileLink>
+          <MobileLink href="/about" setOpen={setOpen}>About</MobileLink>
 
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="text-2xl font-semibold hover:text-pink-400 transition"
+          {session && (
+            <MobileLink href="/dashboard" setOpen={setOpen}>
+              Dashboard
+            </MobileLink>
+          )}
+
+          {session ? (
+            <button
+              onClick={() => {
+                setOpen(false);
+                signOut({ callbackUrl: "/" });
+              }}
+              className="mt-6 text-xl font-medium text-red-400 hover:text-red-300 transition"
             >
-              Home
-            </Link>
-
-            {/* <Link
-              href="/#timeline"
-              onClick={() => setOpen(false)}
-              className="text-2xl font-semibold hover:text-pink-400 transition"
+              Sign Out
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setOpen(false);
+                signIn("github", { callbackUrl: "/projects" });
+              }}
+              className="mt-8 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 text-lg font-semibold"
             >
-              Timeline
-            </Link> */}
-
-            <Link
-            href="/resources"
-            className="text-2xl font-semibold hover:text-pink-400 transition"
-          >
-            Resources
-          </Link>
-
-                        <Link
-            href="/mentors"
-            className="text-2xl font-semibold hover:text-pink-400 transition"
-          >
-            Mentors
-          </Link>
-
-            <Link
-            href="/sponsors"
-            className="text-2xl font-semibold hover:text-pink-400 transition"
-          >
-            Sponsors
-          </Link>
-
-                      <Link
-            href="/about"
-            className="text-2xl font-semibold hover:text-pink-400 transition"
-          >
-            About
-          </Link>
-
-            {session && (
-              <Link
-                href="/dashboard"
-                onClick={() => setOpen(false)}
-                className="text-2xl font-semibold hover:text-pink-400 transition"
-              >
-                Dashboard
-              </Link>
-            )}
-
-            {session ? (
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  signOut({ callbackUrl: "/" });
-                }}
-                className="mt-6 text-xl font-medium text-red-400 hover:text-red-300 transition"
-              >
-                Sign Out
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  signIn("github", { callbackUrl: "/projects" });
-                }}
-                className="
-                  mt-8 rounded-xl
-                  bg-gradient-to-r from-pink-500 to-purple-600
-                  px-6 py-3
-                  text-lg font-semibold
-                  text-white
-                "
-              >
-                Sign In
-              </button>
-            )}
-          </div>
+              Sign In
+            </button>
+          )}
         </div>
-      )}
+      </div>
     </>
+  );
+}
+
+/* ===== REUSABLE MOBILE LINK ===== */
+function MobileLink({
+  href,
+  setOpen,
+  children,
+}: {
+  href: string;
+  setOpen: (v: boolean) => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={() => setOpen(false)}
+      className="text-2xl font-semibold hover:text-pink-400 transition"
+    >
+      {children}
+    </Link>
   );
 }
