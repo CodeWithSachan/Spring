@@ -8,7 +8,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { data: session, status } = useSession();
+
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   /* ===== SCROLL EFFECT ===== */
   useEffect(() => {
@@ -19,22 +21,33 @@ export default function Navbar() {
 
   /* ===== ESC KEY CLOSE ===== */
   useEffect(() => {
-    const onEsc = (e: KeyboardEvent) => {
+    const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  /* ===== CLICK OUTSIDE CLOSE ===== */
+  /* ===== CLICK OUTSIDE CLOSE (FIXED) ===== */
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+
+      // Ignore clicks on hamburger button
+      if (toggleRef.current?.contains(target)) return;
+
+      if (menuRef.current && !menuRef.current.contains(target)) {
         setOpen(false);
       }
     };
-    if (open) document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [open]);
 
   return (
@@ -75,11 +88,7 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={() => signIn("github", { callbackUrl: "/projects" })}
-                className="
-                  rounded-full border border-pink-500/40
-                  px-5 py-2 font-semibold
-                  hover:bg-pink-500/10 hover:border-pink-400 transition
-                "
+                className="rounded-full border border-pink-500/40 px-5 py-2 font-semibold hover:bg-pink-500/10 transition"
               >
                 Sign In
               </button>
@@ -88,14 +97,27 @@ export default function Navbar() {
 
           {/* ===== MOBILE TOGGLE ===== */}
           <button
-            onClick={() => setOpen(!open)}
+            ref={toggleRef}
+            onClick={() => setOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={open}
             className="sm:hidden flex flex-col gap-[5px] z-50"
           >
-            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "rotate-45 translate-y-[7px]"}`} />
-            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "opacity-0"}`} />
-            <span className={`h-[2px] w-6 bg-white transition-all duration-300 ${open && "-rotate-45 -translate-y-[7px]"}`} />
+            <span
+              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+                open && "rotate-45 translate-y-[7px]"
+              }`}
+            />
+            <span
+              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+                open && "opacity-0"
+              }`}
+            />
+            <span
+              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+                open && "-rotate-45 -translate-y-[7px]"
+              }`}
+            />
           </button>
         </nav>
       </header>
