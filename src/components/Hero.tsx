@@ -84,14 +84,14 @@ export default function Hero() {
           flex flex-col gap-2 sm:flex-row sm:justify-between
           animate-fade-up animate-delay-350">
 
-          <span className="rounded-full border border-pink-500/40 bg-pink-500/10
+          {/* <span className="rounded-full border border-pink-500/40 bg-pink-500/10
             px-4 py-1.5 text-xs sm:text-sm text-white">
             🌸 Pre-Registration: Open
-          </span>
+          </span> */}
 
           <span className="rounded-full border border-pink-500/40 bg-pink-500/10
             px-4 py-1.5 text-xs sm:text-sm text-white">
-            🌸 Registration: Feb 1 – Feb 28, 2026
+            🌸 Registration: Jan 15 – Feb 28, 2026
           </span>
 
           <span className="rounded-full border border-pink-500/40 bg-pink-500/10
