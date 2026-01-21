@@ -6,14 +6,14 @@ const timeline = [
   {
     title: "Registration Opens",
     desc: "Projects, and Mentors can start registering",
-    date: "January 1",
+    date: "January 20",
     icon: "👥",
     highlight: true,
   },
   {
     title: "Contributor Registration Opens",
     desc: "Contributors can now register and browse available projects",
-    date: "January 1",
+    date: "January 20",
     icon: "</>",
     highlight: true,
   },
