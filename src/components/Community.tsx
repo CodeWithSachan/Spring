@@ -56,7 +56,7 @@ export default function Community() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             {/* Button */}
             <a
-              href="https://discord.gg/Y3UTVcRU"
+              href="https://discord.gg/JjcT9XSARV"
               target="_blank"
               rel="noopener noreferrer"
               className="
