@@ -137,7 +137,7 @@ export const projects: Project[] = [
     title: "Chatbot",
     description:
       " Built a WhatsApp attendance bot using Node.js and Baileys with QR authentication, real-time updates, and a scalable modular design.",
-    tech: ["CSS"],
+    tech: ["Node.js"],
     difficulty: "Intermediate",
     accepting: true,
     featured: false,
