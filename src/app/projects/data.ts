@@ -131,6 +131,23 @@ export const projects: Project[] = [
       role: "Maintainer",
     },
   },
+
+        {
+    id: "Chatbot",
+    title: "Chatbot",
+    description:
+      " Built a WhatsApp attendance bot using Node.js and Baileys with QR authentication, real-time updates, and a scalable modular design.",
+    tech: ["CSS"],
+    difficulty: "Intermediate",
+    accepting: true,
+    featured: false,
+    published: true, // ✅ REQUIRED
+    repo: "https://github.com/anilkachave01",
+    maintainer: {
+      name: "Anil Prabhakar Kachave",
+      role: "Maintainer",
+    },
+  },
 ];
 
 
