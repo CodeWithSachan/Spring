@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden bg-black">
 
       {/* ===== VIDEO BACKGROUND ===== */}
-      <video
+      {/* <video
         className="absolute inset-0 h-full w-full object-cover"
         // src="/videos/cherry.mp4"
         src="https://res.cloudinary.com/dtc3kiepa/video/upload/f_auto,q_auto,vc_auto/cherry_x4ecw9"
@@ -17,7 +17,18 @@ export default function Hero() {
         playsInline
         // preload="auto"
         preload="metadata"
-      />
+      /> */}
+      <video
+  className="absolute inset-0 h-full w-full object-cover"
+  src="https://res.cloudinary.com/dtc3kiepa/video/upload/f_auto,q_auto,vc_auto/cherry_x4ecw9"
+  poster="https://res.cloudinary.com/dtc3kiepa/video/upload/so_0/cherry_x4ecw9.jpg"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+/>
+
 
       {/* ===== SOFT OVERLAY ===== */}
       <div className="absolute inset-0 bg-black/10" />
