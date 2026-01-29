@@ -8,12 +8,15 @@ export default function Hero() {
       {/* ===== VIDEO BACKGROUND ===== */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/cherry.mp4"
-        // autoPlay
+        // src="/videos/cherry.mp4"
+        src="https://res.cloudinary.com/dtc3kiepa/video/upload/f_auto,q_auto,vc_auto/cherry_x4ecw9"
+
+        autoPlay
         loop
         muted
         playsInline
-        preload="auto"
+        // preload="auto"
+        preload="metadata"
       />
 
       {/* ===== SOFT OVERLAY ===== */}
