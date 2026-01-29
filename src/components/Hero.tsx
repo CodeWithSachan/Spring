@@ -9,7 +9,7 @@ export default function Hero() {
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/videos/cherry.mp4"
-        autoPlay
+        // autoPlay
         loop
         muted
         playsInline
