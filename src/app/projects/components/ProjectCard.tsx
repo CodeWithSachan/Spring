@@ -1,7 +1,25 @@
 import Link from "next/link";
-import type { Project } from "@prisma/client";
 
-export default function ProjectCard({ project }: { project: Project }) {
+/* ✅ UI-safe project type (not Prisma type) */
+export type ProjectCardType = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  difficulty: "BEGINNER" | "INTERMEDIATE" | "ADVANCED";
+  accepting: boolean;
+  featured: boolean;
+  repoUrl: string;
+  tech: string[];
+  maintainerName: string;
+  maintainerRole: string;
+};
+
+export default function ProjectCard({
+  project,
+}: {
+  project: ProjectCardType;
+}) {
   return (
     <Link
       href={`/projects/${project.slug}`}
