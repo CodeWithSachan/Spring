@@ -75,15 +75,23 @@ model VerificationToken {
  */
 
 model Project {
-  id          String     @id @default(uuid())
-  title       String
-  description String
-  difficulty  Difficulty
-  accepting   Boolean    @default(false)
-  repoUrl     String
-  createdAt   DateTime   @default(now())
+  id              String     @id @default(uuid())
+  slug            String     @unique
+  title           String
+  description     String
+  difficulty      Difficulty
+  accepting       Boolean    @default(false)
+  featured        Boolean    @default(false)
 
-  contributions Contribution[]
+  repoUrl         String
+  tech            String[]
+
+  maintainerName  String?   // 👈 make optional
+  maintainerRole  String?   // 👈 make optional
+
+  createdAt       DateTime   @default(now())
+
+  contributions   Contribution[]
 }
 
 model Season {

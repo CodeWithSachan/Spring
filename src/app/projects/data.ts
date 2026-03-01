@@ -1,5 +1,6 @@
 export type Project = {
   id: string;
+  slug: string; // ✅ ADD THIS
   title: string;
   description: string;
   tech: string[];
@@ -15,41 +16,11 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  // {
-  //   id: "civic-sense",
-  //   title: "Civic Sense",
-  //   description:
-  //     "An open-source platform to report and track civic issues in cities.",
-  //   tech: ["React", "Node.js", "MongoDB"],
-  //   difficulty: "Advanced",
-  //   accepting: true,
-  //   featured: true,
-  //   published: true, // ✅ REQUIRED
-  //   repo: "https://github.com/example/civic-sense",
-  //   maintainer: {
-  //     name: "Silicality Core",
-  //     role: "Project Admin",
-  //   },
-  // },
-  // {
-  //   id: "daan-setu",
-  //   title: "DaanSetu",
-  //   description:
-  //     "Smart donation and pickup system connecting donors with NGOs.",
-  //   tech: ["Next.js", "Firebase"],
-  //   difficulty: "Intermediate",
-  //   accepting: true,
-  //   featured: false,
-  //   published: true, // ✅ REQUIRED
-  //   repo: "https://github.com/example/daan-setu",
-  //   maintainer: {
-  //     name: "Silicality Core",
-  //     role: "Maintainer",
-  //   },
-  // },
+
 
     {
-    id: "ATS_Scanner",
+    id: "ats-scanner",
+    slug: "ats-scanner",
     title: "ATS_Scanner",
     description:
       "Community-driven Resume Analyzer and ATS Scanner, built to help students and job seekers.",
@@ -65,7 +36,8 @@ export const projects: Project[] = [
     },
   },
       {
-    id: "House-Price-Predictor",
+    id: "house-price-predictor",
+    slug: "house-price-predictor",
     title: "House-Price-Predictor",
     description:
       "A House Price Prediction project built using machine learning techniques.",
@@ -82,7 +54,8 @@ export const projects: Project[] = [
   },
 
         {
-    id: "Login-Signup-Page-Flutter",
+    id: "login-signup-page-flutter",
+    slug: "login-signup-page-flutter",
     title: "Login-Signup-Page-Flutter",
     description:
       "Community-driven Extension of a Flutter-based Welcome, Login, and Signup UI project.",
@@ -99,7 +72,8 @@ export const projects: Project[] = [
   },
 
     {
-    id: "FakeNews",
+    id: "fakenews",
+    slug: "fakenews",
     title: "FakeNews",
     description:
       "FakeNewsTracker, for collecting, analyzing, and visualizing of fake news and the related dissemination on social media.",
@@ -116,7 +90,8 @@ export const projects: Project[] = [
   },
 
       {
-    id: "To-Do-List",
+    id: "to-do-list",
+    slug: "to-do-list",
     title: "To-Do-List",
     description:
       " A basic To-Do List application that is intentionally kept simple and minimal..",
@@ -133,7 +108,8 @@ export const projects: Project[] = [
   },
 
         {
-    id: "Chatbot",
+    id: "chatbot",
+    slug: "chatbot",
     title: "Chatbot",
     description:
       " Built a WhatsApp attendance bot using Node.js and Baileys with QR authentication, real-time updates, and a scalable modular design.",

@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Project } from "../data";
+import type { Project } from "@prisma/client";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
-      href={`/projects/${project.id}`}
+      href={`/projects/${project.slug}`}
       className="
         group relative block rounded-2xl
         border border-white/10
@@ -49,20 +49,20 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       {/* Meta */}
       <div className="flex items-center justify-between mb-5">
-        <span
-          className={`
-            text-xs px-3 py-1 rounded-full
-            ${
-              project.difficulty === "Beginner"
-                ? "bg-emerald-500/20 text-emerald-400"
-                : project.difficulty === "Intermediate"
-                ? "bg-yellow-500/20 text-yellow-400"
-                : "bg-red-500/20 text-red-400"
-            }
-          `}
-        >
-          {project.difficulty}
-        </span>
+<span
+  className={`
+    text-xs px-3 py-1 rounded-full
+    ${
+      project.difficulty === "BEGINNER"
+        ? "bg-emerald-500/20 text-emerald-400"
+        : project.difficulty === "INTERMEDIATE"
+        ? "bg-yellow-500/20 text-yellow-400"
+        : "bg-red-500/20 text-red-400"
+    }
+  `}
+>
+  {project.difficulty}
+</span>
 
         <span
           className={`text-xs ${
@@ -79,9 +79,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="mb-5 text-xs text-gray-400">
         Maintained by{" "}
         <span className="text-white">
-          {project.maintainer.name}
+          {project.maintainerName}
         </span>{" "}
-        — {project.maintainer.role}
+        — {project.maintainerRole}
       </div>
 
       {/* Footer CTA */}
