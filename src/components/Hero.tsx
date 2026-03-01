@@ -105,7 +105,7 @@ export default function Hero() {
 
           <span className="rounded-full border border-pink-500/40 bg-pink-500/10
             px-4 py-1.5 text-xs sm:text-sm text-white">
-            🌸 Registration: Open
+            🌸 Registration: Opens Till March
           </span>
 
           <span className="rounded-full border border-pink-500/40 bg-pink-500/10
